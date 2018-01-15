@@ -4,15 +4,18 @@ import Modal from '../../components/Lib/modal';
 export default class TopNav extends Component {
     constructor(props) {
         super(props);
-        this.state = { menuItems: [] };
+        this.state = { 
+            menuItems: [],
+            modalContents: null
+        };
     }
 
     componentDidMount() {
         let menuItems = [
-            { url: '/home', label: 'Home' },
-            { url: '/jobsBoard', label: 'Job Board' },
-            { url: '/mentoring', label: 'Mentorship' },
-            { url: '#', label: 'Sign Up/Login', onclick: this.openSignup },
+            { url: 'home', label: 'Home' },
+            { url: 'jobsBoard', label: 'Job Board' },
+            { url: 'mentoring', label: 'Mentorship' },
+            { url: 'login', label: 'Sign Up/Login' },
         ];
         this.setState({
             menuItems,
@@ -20,14 +23,21 @@ export default class TopNav extends Component {
         });
     }
 
-    openSignup(){
-        return (
-          <Modal />  
-        );
+    openSignup = () =>{
+        this.setState({
+            modalContents: this._getSignup()
+        });
+    }
+
+    clickHandler = (item) => {
+        this.props.pageLoader(item.url);
+        this.setState({
+            currentLabel: item.label
+        });
     }
 
     render() {
-        const { menuItems } = this.state;
+        const { menuItems, modalContents } = this.state;
         return (
             <header id="main-header">
                 <div className="container">
@@ -49,7 +59,7 @@ export default class TopNav extends Component {
                                                 key={item.label}
                                                 className={cssClass}
                                             >
-                                                <a href={item.url} onClick={onclickHandler}>
+                                                <a href='#' onClick={this.clickHandler.bind(this, item)} value={item.url}>
                                                     {item.label}
                                                 </a>
                                             </li>
@@ -67,7 +77,9 @@ export default class TopNav extends Component {
                         </div>
                     </div>
                 </div>
+                <div>{ modalContents }</div>
             </header>
+
         );
     }
 }
