@@ -6,7 +6,7 @@ export default class LoginSignup extends Component {
 
     render(){
         return (
-            <div class='container'>
+            <div className='container'>
                 <Login />
                 <Signup />
             </div>
