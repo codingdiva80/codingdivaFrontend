@@ -162,6 +162,10 @@ img {
 #main-footer {
 	background: #4d035b;
 	color: grey;
+	position:absolute;
+	bottom:0;
+	height:60px;
+	width:100%;
 }
 
 /*MY ACCOUNT FORM*/
