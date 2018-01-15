@@ -11,7 +11,7 @@ export default class TopNav extends Component {
             { url: '/home', label: 'Home' },
             { url: '/jobsBoard', label: 'Job Board' },
             { url: '/mentoring', label: 'Mentorship' },
-            { url: '/login', label: 'Login' },
+            { url: '/login', label: 'Sign Up/Login' },
         ];
         this.setState({
             menuItems,
