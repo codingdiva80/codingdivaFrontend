@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import TopNav from './components/TopNav';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
-import { Signup, Login } from './components/User';
+import { LoginSignup } from './components/User';
 
 
 export default class Home extends React.Component {
@@ -38,11 +38,7 @@ export default class Home extends React.Component {
 			break;
 
 			case 'login' :
-				this.setState({ urlComponent: <Login />});
-			break;
-
-			case 'signup' :
-				this.setState({ urlComponent: <Signup /> });
+				this.setState({ urlComponent: <LoginSignup />});
 			break;
 
 			default:
