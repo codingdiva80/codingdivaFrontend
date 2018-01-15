@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modal from '../../components/Lib/modal';
 
 export default class TopNav extends Component {
     constructor(props) {
@@ -11,12 +12,18 @@ export default class TopNav extends Component {
             { url: '/home', label: 'Home' },
             { url: '/jobsBoard', label: 'Job Board' },
             { url: '/mentoring', label: 'Mentorship' },
-            { url: '/login', label: 'Sign Up/Login' },
+            { url: '#', label: 'Sign Up/Login', onclick: this.openSignup },
         ];
         this.setState({
             menuItems,
             currentLabel: 'Home',
         });
+    }
+
+    openSignup(){
+        return (
+          <Modal />  
+        );
     }
 
     render() {
@@ -36,12 +43,13 @@ export default class TopNav extends Component {
                                             item.label
                                                 ? 'current'
                                                 : '';
+                                            let onclickHandler = item.onclick || null;
                                         return (
                                             <li
                                                 key={item.label}
                                                 className={cssClass}
                                             >
-                                                <a href={item.url}>
+                                                <a href={item.url} onClick={onclickHandler}>
                                                     {item.label}
                                                 </a>
                                             </li>
