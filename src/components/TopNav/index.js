@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Modal from '../../components/Lib/modal';
 
 export default class TopNav extends Component {
     constructor(props) {

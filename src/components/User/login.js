@@ -7,8 +7,10 @@ export default class Login extends Component {
 
     render() {
         return(
-            <div class="container">
-                <span>LOGIN PAGE</span>
+            <div className="col-1">
+                <div>
+                    Login...
+                </div>
 			</div>
         )
     }

@@ -225,6 +225,16 @@ button {
 	font-weight: bold;
 }
 
+.col-1 {
+	width:45%;
+	float:left;
+}
+
+.col-2 {
+	width:45%;
+	float:left;
+}
+
 /* MEDIA QUEIRIES */
 @media(max-width: 800px) {
 	#showcase h1 {

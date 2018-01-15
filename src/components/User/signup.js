@@ -7,7 +7,9 @@ export default class Signup extends Component {
 
     render() {
         return(
-            <div></div>
+            <div className='col-2'>
+                Signup...
+            </div>
         )
     }
 }
