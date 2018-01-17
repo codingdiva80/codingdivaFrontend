@@ -8,20 +8,16 @@ export default class Login extends Component {
     render() {
         return(
             <div className="col-1">
-                <div>
-                    <div>Login</div>
-                    <div>
-                        <label>Email:</label>
-                        <input type='text' name='email' />
-
-                        <label>Password:</label>
-                        <input type='text' name='password' />
-
-                        <button>Login</button>
-
-                        <div>Forgot password?</div>
+                <div className="contact">
+                    <div className="contact-text">
+                        <div className="contact-items">
+                        <h2>Login</h2>
+                        <input type="text" placeholder="Username ..." />
+                        <input type="text" placeholder="Email ..." />                                                                               
+                        <a href="#">Login!</a>
+                        </div>
                     </div>
-                </div>
+                </div>  
 			</div>
         )
     }

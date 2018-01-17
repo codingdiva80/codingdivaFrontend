@@ -10,48 +10,47 @@ export default class Signup extends Component {
             emailNew: '',
             passwordNew: '',
             emailVerifiedSymbol: '',
-            passwordVerifiedSymbol: ''
-        }
+            passwordVerifiedSymbol: '',
+        };
     }
 
-    setEmail = (e) => {
+    setEmail = e => {
         this.setState({
-            emailNew : e.currentTarget.value
+            emailNew: e.currentTarget.value,
         });
-    }
+    };
 
-    setPassword = (e) => {
+    setPassword = e => {
         this.setState({
-            passwordNew: e.currentTarget.value
-        })
-    }
+            passwordNew: e.currentTarget.value,
+        });
+    };
 
     verify = () => {
-        if(this._verifyEmail() && this._verifyPassword()){
+        if (this._verifyEmail() && this._verifyPassword()) {
             return true;
         }
         return false;
-    }
+    };
 
-    handleSubmit = (e) => {
+    handleSubmit = e => {
         e.preventDefault();
-        if(this.verify()){
-            let submitURL = apiURL() + "/user/register";
+        if (this.verify()) {
+            let submitURL = apiURL() + '/user/register';
             fetch(submitURL, {
                 method: 'post',
-                headers: {'Content-Type':'application/json'},
+                headers: { 'Content-Type': 'application/json' },
                 body: {
                     email: this.state.emailNew,
-                    password: this.state.passwordNew
-                }
-            }).then((response) => {
+                    password: this.state.passwordNew,
+                },
+            }).then(response => {
                 console.log(response);
             });
+        } else {
+            alert('Not ok');
         }
-        else{
-            alert("Not ok");
-        }
-    }
+    };
 
     _verifyEmail = () => {
         let verified;
@@ -60,49 +59,59 @@ export default class Signup extends Component {
         verified = reg.test(email);
         let symbol = verified ? this.check : this.x;
         this.setState({
-            emailVerifiedSymbol: symbol
+            emailVerifiedSymbol: symbol,
         });
         return verified;
-    }
+    };
 
     _verifyPassword = () => {
         let verified = true;
         let reg = /([a-zA-Z0-9]){5,}/g;
         verified = reg.test(this.state.passwordNew);
         let symbol = verified ? this.check : this.x;
-        
+
         this.setState({
-            passwordVerifiedSymbol: symbol
+            passwordVerifiedSymbol: symbol,
         });
         return verified;
-    }
-
+    };
 
     render() {
         const {
-            emailNew, passwordNew, emailVerifiedSymbol, passwordVerifiedSymbol
+            emailNew,
+            passwordNew,
+            emailVerifiedSymbol,
+            passwordVerifiedSymbol,
         } = this.state;
-        return(
-            <div className='col-2'>
-                <div>Don't have an account? Signup here</div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>Email:</label>
-                    <span>{ emailVerifiedSymbol }</span>
-                    <input type='text' name='email-new' 
-                        onChange={this.setEmail} value={emailNew}
-                        onBlur={this._verifyEmail}
-                        />
-
-                    <label>Password:</label>
-                    <span>{ passwordVerifiedSymbol }</span>
-                    <input type='password' name='password-new' 
-                        onChange={this.setPassword} value={passwordNew} 
-                        onBlur={this._verifyPassword}
-                        />
-
-                    <button type='submit'>Signup!</button>
-                </form>
+        return (
+            <div className="contact">
+                <div className="contact-text">
+                    <div className="contact-items">
+                        <h2>Sign Up</h2>
+                        <span>
+                            <input type="text" placeholder="Username ..." />
+                        </span>
+                        <span>
+                            <input
+                                type="text"
+                                placeholder="Email ..."
+                                onChange={this.setEmail}
+                                value={emailNew}
+                                onBlur={this._verifyEmail}
+                            />
+                            <em>{emailVerifiedSymbol}</em>
+                        </span>
+                        <span>
+                            <input type="password" placeholder="Password ..." onBlur={this._verifyPassword} onChange={this.setPassword}/>
+                            <em>{passwordVerifiedSymbol}</em>
+                        </span>
+                        
+                        <div>
+                            <a href="#">Sign Up!</a>
+                        </div>
+                    </div>
+                </div>
             </div>
-        )
+        );
     }
 }

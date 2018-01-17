@@ -1,5 +1,12 @@
+/*
+	01 - MAIN STUFF
+	02 - Contact Forms
+
+*/
+
 *{margin: 0; padding: 0}
 
+/*	01 - MAIN STUFF 	*/
 body {
 	font-size: 17px;
 }
@@ -89,6 +96,8 @@ body {
 	text-align: center;
 	width: 50%;
 }
+
+/*		02 - Contact Forms		*/
 .contact-items {
 	display: -webkit-box;
 	display: -webkit-flex;
@@ -112,17 +121,29 @@ body {
 .contact {
 	padding: 80px 0;
 }
+.contact span {
+	width:100%;
+}
 .contact-items input[type="text"] {
 	border-radius: 10px;
 	margin-bottom:15px;
 	padding: 15px;
-	width: 50%;  
+	width: 90%; 
+	flex-wrap: nowrap;
+}
+.contact-items input[type="password"] {
+	border-radius: 10px;
+	margin-bottom:15px;
+	padding: 15px;
+	width: 90%; 
+	flex-wrap: nowrap;
 }
 .contact-items textarea {
 	border-radius: 10px;
 	height: 150px;
 	padding: 15px;
-	width: 50%;
+	width: 90%;
+	flex-wrap: nowrap;
 }
 .contact-items a {
 	background: #57b20c;
@@ -200,8 +221,15 @@ button {
 	color: #FFA500;
 	font-weight: bold;
 }
+.row {
+	width:100%;
+	max-width:980px;
+	margin: 0 auto;
+}
+
 .col-1 {
 	width:45%;
+	margin-right:3%;
 	float:left;
 }
 .col-2 {
@@ -238,6 +266,14 @@ button {
 	}
 	.contact-items h2 {
 		font-size: 1.5em;		
+	}
+	.col-1 {
+		width:100%;
+		float:none;
+	}
+	.col-2 {
+		width:100%;
+		float:none;
 	}
 }
 @media all and (max-width: 800px) {

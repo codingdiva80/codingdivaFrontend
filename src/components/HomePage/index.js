@@ -1,17 +1,21 @@
 import React, { Component } from 'react';
+import Contact from '../../components/Contact';
 
 export default class HomePage extends Component {
-
-    render(){
+    render() {
         return (
-            <section id="showcase">
-                <div className="showcase-container">
-                    <div className="showcase-content">
-                        <span className="glitch1" data-text="coding">codingDIVA</span>
-                        <p>a friendly place to code</p>
+            <div>
+                <section id="showcase">
+                    <div className="showcase-container">
+                        <div className="showcase-content">
+                            <span className="glitch1" data-text="coding">
+                                codingDIVA
+                            </span>
+                            <p>a friendly place to code</p>
+                        </div>
                     </div>
-                </div>		
-            </section>
-        )
+                </section>
+            </div>
+        );
     }
 }

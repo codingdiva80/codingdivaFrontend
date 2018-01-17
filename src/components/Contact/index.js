@@ -18,16 +18,16 @@ export default class Contact extends Component {
                     </div>
                 </div>   
                 <div className="contact">
-                <div className="contact-text">
-                    <div className="contact-items">
-                    <h2>Login</h2>
-                    <input type="text" placeholder="Username ..." />
-                    <input type="text" placeholder="Email ..." />                                                                               
-                    <a href="#">Login!</a>
+                    <div className="contact-text">
+                        <div className="contact-items">
+                        <h2>Login</h2>
+                        <input type="text" placeholder="Username ..." />
+                        <input type="text" placeholder="Email ..." />                                                                               
+                        <a href="#">Login!</a>
+                        </div>
                     </div>
-                </div>
-            </div>  
-        </div> 
+                </div>  
+            </div> 
         )
     }
 }
