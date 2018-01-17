@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import TopNav from './components/TopNav';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 import HomePage from './components/HomePage';
 import { LoginSignup } from './components/User';
 
@@ -52,7 +53,7 @@ export default class Home extends React.Component {
 			<div>
 				<TopNav pageLoader={ this.updateUrl } />
 				{ urlComponent }
-				<Footer />
+				<Contact />
 			</div>
 		)
 	}
