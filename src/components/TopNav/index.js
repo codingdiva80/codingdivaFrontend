@@ -39,46 +39,37 @@ export default class TopNav extends Component {
         const { menuItems, modalContents } = this.state;
         return (
             <header id="main-header">
-                <div className="container">
-                    <div className="row end-sm end-md end-lg center-xs middle-xs middle-sm middle-md middle-lg">
-                        <div className="col-xs-12 col-sm-3 col-md-3 col-lg-3" />
-
-                        <div className="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                            <nav id="navbar">
-                                <ul>
-                                    {this.state.menuItems.map(item => {
-                                        const cssClass =
-                                            this.state.currentLabel ===
-                                            item.label
-                                                ? 'current'
-                                                : '';
-                                            let onclickHandler = item.onclick || null;
-                                        return (
-                                            <li
-                                                key={item.label}
-                                                className={cssClass}
-                                            >
-                                                <a href='#' onClick={this.clickHandler.bind(this, item)} value={item.url}>
-                                                    {item.label}
-                                                </a>
-                                            </li>
-                                        );
-                                    })}
-                                    <li>
-                                        <input
-                                            type="search"
-                                            placeholder="Search Coding Diva"
-                                            id="searchBar"
-                                        />
+                    <nav id="navbar">
+                        <ul>
+                            {this.state.menuItems.map(item => {
+                                const cssClass =
+                                    this.state.currentLabel ===
+                                    item.label
+                                        ? 'current'
+                                        : '';
+                                    let onclickHandler = item.onclick || null;
+                                return (
+                                    <li
+                                        key={item.label}
+                                        className={cssClass}
+                                    >
+                                        <a href='#' onClick={this.clickHandler.bind(this, item)} value={item.url}>
+                                            {item.label}
+                                        </a>
                                     </li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-                <div>{ modalContents }</div>
+                                );
+                            })}
+                            <li>
+                                <input
+                                    type="search"
+                                    placeholder="Search codingDIVA"
+                                    id="searchBar"
+                                />
+                            </li>
+                        </ul>
+                    </nav>
+        <div>{ modalContents }</div>
             </header>
-
         );
     }
 }
