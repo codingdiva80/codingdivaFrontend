@@ -11,7 +11,12 @@ export default class Signup extends Component {
             passwordNew: '',
             emailVerifiedSymbol: '',
             passwordVerifiedSymbol: '',
+            username: '',
         };
+    }
+
+    setUsername = e => {
+        this.setState({ username: e.currentTarget.value });
     }
 
     setEmail = e => {
@@ -35,15 +40,18 @@ export default class Signup extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
+        let username = this.state.username || this.state.emailNew;
+        let body = {
+            username,
+            email: this.state.emailNew,
+            password: this.state.passwordNew
+        };
         if (this.verify()) {
             let submitURL = apiURL() + '/user/register';
             fetch(submitURL, {
                 method: 'post',
-                headers: { 'Content-Type': 'application/json' },
-                body: {
-                    email: this.state.emailNew,
-                    password: this.state.passwordNew,
-                },
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8' },
+                body: JSON.stringify(body),
             }).then(response => {
                 console.log(response);
             });
@@ -89,7 +97,7 @@ export default class Signup extends Component {
                     <div className="contact-items">
                         <h2>Sign Up</h2>
                         <span>
-                            <input type="text" placeholder="Username ..." />
+                            <input type="text" placeholder="Username ..." onChange={ this.setUsername}/>
                         </span>
                         <span>
                             <input
@@ -107,7 +115,7 @@ export default class Signup extends Component {
                         </span>
                         
                         <div>
-                            <a href="#">Sign Up!</a>
+                            <a href="#" onClick={this.handleSubmit}>Sign Up!</a>
                         </div>
                     </div>
                 </div>
